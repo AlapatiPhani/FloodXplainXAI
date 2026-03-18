@@ -2,8 +2,9 @@ streamlit
 torch
 torchvision
 grad-cam
-opencv-python
-pillow
+Pillow
 numpy
 matplotlib
 scikit-learn
+gdown
+opencv-python-headless
