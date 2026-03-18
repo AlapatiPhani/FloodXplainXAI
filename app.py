@@ -16,7 +16,24 @@ import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.use('Agg')
 import warnings
+import os
+import subprocess
 warnings.filterwarnings('ignore')
+
+# ── Auto download model from Google Drive ──
+if not os.path.exists('floodxplain_model.pth'):
+    with st.spinner("⬇️ Downloading model... please wait ~30 seconds"):
+        subprocess.run([
+            "pip", "install", "gdown", "-q"
+        ])
+        import gdown
+        gdown.download(
+            'https://drive.google.com/uc?id=1tobQ0aR1WFjtzTP-O92UtUW4oCI9ZK0U',
+            'floodxplain_model.pth',
+            quiet=False
+        )
+    st.success("✅ Model downloaded successfully!")
+    st.rerun()
 
 # ── Page config ──
 st.set_page_config(
